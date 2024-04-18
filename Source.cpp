@@ -2,16 +2,20 @@
 
 using namespace std;
 
-const int ARRAYSIZE = 8;
+const int ARRAYSIZE = 16;
 
 bool isCardValid(int digits[], int size);
+bool isNumeric(string s);
+bool isCorrectLength(string s);
 
 int main() {
-	int cardNumber;
+	string cardNumber;
 	int digits[ARRAYSIZE];
 	int digitPlace = 0;
 	int tens = 0;
 
+	cout << isNumeric("32343f5431");
+	/*
 	cout << "Enter an 8-digit card number or Q to quit: ";
 	while (cin >> cardNumber) {
 
@@ -30,6 +34,7 @@ int main() {
 		}
 		cout << "Enter an 8-digit card number or Q to quit: ";
 	}
+	*/
 }
 
 bool isCardValid(int digits[], int size) {
@@ -54,4 +59,17 @@ bool isCardValid(int digits[], int size) {
 	else {
 		return false;
 	}
+}
+bool isNumeric(string s) {
+	for (auto i : s) {
+		if (!isdigit(i)) {
+			return false;
+		}
+	}
+	return true;
+
+}
+bool isCorrectLength(string s) {
+
+	return true;
 }
