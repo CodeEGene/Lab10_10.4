@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -6,23 +7,22 @@ const int ARRAYSIZE = 16;
 
 bool isCardValid(int digits[], int size);
 bool isNumeric(string s);
-bool isCorrectLength(string s);
+bool isCorrectLength(string s, int size);
 
 int main() {
 	string cardNumber;
 	int digits[ARRAYSIZE];
 	int digitPlace = 0;
 	int tens = 0;
-
-	cout << isNumeric("32343f5431");
-	/*
+	int intCardNumber;
+	
 	cout << "Enter an 8-digit card number or Q to quit: ";
 	while (cin >> cardNumber) {
-
+		intCardNumber = stoi(cardNumber);
 		for (int i = 0; i < ARRAYSIZE; i++) {
 			digitPlace = pow(10, i + 1);
 			tens = pow(10, i);
-			digits[i] = (cardNumber % digitPlace) / tens;
+			digits[i] = (intCardNumber % digitPlace) / tens;
 		}
 		
 
@@ -34,7 +34,6 @@ int main() {
 		}
 		cout << "Enter an 8-digit card number or Q to quit: ";
 	}
-	*/
 }
 
 bool isCardValid(int digits[], int size) {
@@ -69,7 +68,7 @@ bool isNumeric(string s) {
 	return true;
 
 }
-bool isCorrectLength(string s) {
-
-	return true;
+bool isCorrectLength(string s , int size) {
+	
+	return s.length() == size;
 }
